@@ -151,9 +151,9 @@ function processMessage($message) {
     if (strpos($text, "/start") === 0) {
       apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\n ما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس او و سنگ کاغذ قیچی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
             "inline_keyboard"=>array(
-			    array(array("text"=>"اعضا تیم","url"=>"https://telegram.me/TeleSpeedTG")),array("text"=>"امیرحسین","url"=>"https://telegram.me/veryg0odebot")),array("text"=>"محمد","url"=>"https://telegram.me/poker_soft")),
-				array(array("text"=>"ایدی چنل","url"=>"https://telegram.me/TeleSpeedTG"))
-			    array(array("text"=>"بازی XO","switch_inline_query"=>md5(date("YMDms"))),
+			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/veryg0odebot")),
+				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/pro_poker")),
+			    array(array("text"=>"بازی XO","switch_inline_query"=>md5(date("YMDms"))),array("text"=>"سنگ کاغذ قیچی (به زودی)","callback_data"=>"m"))
 			)
 		)));
     } 
