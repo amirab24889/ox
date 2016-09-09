@@ -149,11 +149,13 @@ function processMessage($message) {
     $text = $message['text'];
 
     if (strpos($text, "/start") === 0) {
-      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\n ما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس او و سنگ کاغذ قیچی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
+      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "سلام\nخوش اومدی به ربات خودت\nسازنده تیم تله اسپید\nبرای شروع بازی بر روی دکمه اخر کیلیک کن و بعد یکی از دوستانت و انتخاب کن تا باهاش بازی کنی\nیاحق", 'reply_markup' => array(
             "inline_keyboard"=>array(
-			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/veryg0odebot")),
-				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/pro_poker")),
-			    array(array("text"=>"بازی XO","switch_inline_query"=>md5(date("YMDms"))),array("text"=>"سنگ کاغذ قیچی (به زودی)","callback_data"=>"m"))
+			    array(array("text"=>"سازندگان","url"=>"https://telegram.me/TeleSpeedTG")),
+				array(array("text"=>"امیرحسین","url"=>"https://telegram.me/pro_poker")),
+				array(array("text"=>"محمد","url"=>"https://telegram.me/pro_soft")),
+				array(array("text"=>"ایدی چنل","url"=>"https://telegram.me/TeleSpeedTG")),
+			    array(array("text"=>"برای شروع بازی کیلیک کن","switch_inline_query"=>md5(date("YMDms"))),
 			)
 		)));
     } 
@@ -166,7 +168,7 @@ function inlineMessage($inline){
 	$query=$inline['query'];
 	
 	//apiRequest("sendMessage",array("chat_id"=>111825543,"text"=>json_encode($inline['from'])));
-	apiRequest("answerInlineQuery",array("inline_query_id"=>$id,"results"=>array(array("type"=>"article","id"=>$query,"title"=>"بازی XO","input_message_content"=>array("message_text"=>"<b>بازی XO</b>\n برای شروع روی دگمه زیر کلیک کنید👇🏻👇🏻👇🏻","parse_mode"=>"HTML","disable_web_page_preview"=>false),
+	apiRequest("answerInlineQuery",array("inline_query_id"=>$id,"results"=>array(array("type"=>"article","id"=>$query,"title"=>"بازی دوز","input_message_content"=>array("message_text"=>"<b>بازی XO</b>\n برای شروع روی دگمه زیر کلیک کنید👇🏻👇🏻👇🏻","parse_mode"=>"HTML","disable_web_page_preview"=>false),
 	    "reply_markup"=>array(
 	        "inline_keyboard"=>array(
 			    array(array("text"=>"شروع بازی!","callback_data"=>"play_".$chat_id))
@@ -204,7 +206,7 @@ function callbackMessage($callback){
 			  $Tab[3][0]["text"]="ترک بازی!";
 			  $Tab[3][0]["callback_data"]="Left";
 			  
-			  apiRequest("editMessageText",array("inline_message_id"=>$message_id,"text"=>"بازی آغاز شد\n\n بازیکن اول:$P1Name(❌)\nبازیکن دوم:$P2Name(⭕️)\n\n هم اکنون نوبت $P1Name(❌) است.","reply_markup"=>array(
+			  apiRequest("editMessageText",array("inline_message_id"=>$message_id,"text"=>"بازی عاغاز شد😍\nبازیکن اول\n$P1Name(❌)\nبازیکن دوم\n$P2Name(⭕️)\n","reply_markup"=>array(
 			    "inline_keyboard"=>$Tab 
 			  )));
 			  exit;
