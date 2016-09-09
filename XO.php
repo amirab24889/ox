@@ -149,7 +149,7 @@ function processMessage($message) {
     $text = $message['text'];
 
     if (strpos($text, "/start") === 0) {
-      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "اگه تو هم تلگرامت آپدیت باشه این دکمه های شیشه ای رو دیدی صددرصد\n ما با همین دکمه ها براتون چند تا بازی آماده کردیم مثل ایکس او و سنگ کاغذ قیچی \n اگه مایلی با دوستات بازی کنی روی لینک زیر کلیک کن. بعد دوستتو انتخاب کن و منتظر باش که بااکس اینلاین ظاهر شه", 'reply_markup' => array(
+      apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => "سلام\nخوش اومدی به ربات خودت\nسازنده تیم تله اسپید\nبرای شروع بازی بر روی دکمه اخر کیلیک کن و بعد یکی از دوستانت و انتخاب کن تا باهاش بازی کنی\nیاحق", 'reply_markup' => array(
             "inline_keyboard"=>array(
 			    array(array("text"=>"توسعه دهنده","url"=>"https://telegram.me/pro_poker")),
 				array(array("text"=>"مشارکت کننده","url"=>"https://telegram.me/poker_soft")),
@@ -167,7 +167,7 @@ function inlineMessage($inline){
 	$query=$inline['query'];
 	
 	//apiRequest("sendMessage",array("chat_id"=>111825543,"text"=>json_encode($inline['from'])));
-	apiRequest("answerInlineQuery",array("inline_query_id"=>$id,"results"=>array(array("type"=>"article","id"=>$query,"title"=>"بازی XO","input_message_content"=>array("message_text"=>"<b>بازی XO</b>\n برای شروع روی دگمه زیر کلیک کنید👇🏻👇🏻👇🏻","parse_mode"=>"HTML","disable_web_page_preview"=>false),
+	apiRequest("answerInlineQuery",array("inline_query_id"=>$id,"results"=>array(array("type"=>"article","id"=>$query,"title"=>"بازی XO","input_message_content"=>array("message_text"=>"<b>بازی XO</b>\n برای شروع روی دگمه زیر کلیک کنید👇🏻👇🏻👇🏻\nبرای اینکه شما هم بازی کنید بنویسید\n@XO_TeleSPeed_BOT TG\nو بعد یه متن میاد روی متن کیلیک کنید و شما هم بازی کنید","parse_mode"=>"HTML","disable_web_page_preview"=>false),
 	    "reply_markup"=>array(
 	        "inline_keyboard"=>array(
 			    array(array("text"=>"شروع بازی!","callback_data"=>"play_".$chat_id))
@@ -212,7 +212,7 @@ function callbackMessage($callback){
 		  }
 	  }
 	  else if($data=="Left"){
-		  apiRequest("editMessageText",array("inline_message_id"=>$message_id,"text"=>"بازی مورد نظر به اتمام رسید."," reply_markup"=>array(
+		  apiRequest("editMessageText",array("inline_message_id"=>$message_id,"text"=>"اخه کسکش کونی تو که خایه ندار برچی بازی میکنی که بعد فرار کنید جنده"," reply_markup"=>array(
 			"inline_keyboard"=>$Tab 
 		  )));  
 		  exit;
